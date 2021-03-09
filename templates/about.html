@@ -12,19 +12,44 @@
         leave on other business, welcomed a fourteenth to fill into their party.
     </p>
 
+    <!-- Loop member in company -->
     {% for member in company %}
 
     <div class="row featurette">
-        <div class="col-md-7">
-            <h3>{{ member.name }}</h3>
-            <p>
-                {{ member.description }}
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="https://vignette.wikia.nocookie.net/lotr/images/3/3f/ThorinBIG.jpg" alt="Thorin Oakenshield">
-        </div>
+
+        <!-- If else logic to show specific data -->
+        <!-- Displays text on left and image right if odd number -->
+        <!-- Displays text on right and image left if even number -->
+        {% if loop.index % 2 != 0 %}
+
+            <div class="col-md-7">
+                <h3>{{ loop.index }}. {{ member.name }}</h3>
+                <p>{{ member.description }}</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+            </div>
+
+        {% else %}
+            
+            <div class="col-md-5">
+                <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+            </div>
+            <div class="col-md-7">
+                <h3>{{ loop.index }}. {{ member.name }}</h3>
+                <p>{{ member.description }}</p>
+            </div>
+
+        {% endif  %}
+
     </div>
+
+    <!-- Stop at final index -->
+    {% if loop.index != loop.length() %}
+
+        <hr class="featurette-divider">
+
+    {% endif %}
 
     {% endfor %}
 {% endblock %}
