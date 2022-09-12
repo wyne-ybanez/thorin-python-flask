@@ -4,7 +4,7 @@ Welcome,
 
 Project still in progress.
 
-Project Link: https://wyne-ybanez.github.io/thorin-python-flask/
+Project Link: https://thorin-flask-app-1.herokuapp.com/
 
 Project was made with the guidance of Code Institute.
 
